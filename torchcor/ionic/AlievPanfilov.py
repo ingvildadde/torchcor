@@ -1,3 +1,5 @@
+from typing import Optional, List
+
 import torch
 import torchcor as tc
 
@@ -23,12 +25,14 @@ class AlievPanfilov:
         self,
         dt: float,
         device: torch.device=tc.get_device(), 
-        dtype: torch.dtype=torch.float64
+        dtype: torch.dtype=torch.float64,
+        region_ids: Optional[List[int]] = None
     ):
         self.name = "AlievPanfilov"
         self.dt = dt
         self.device = device
         self.dtype = dtype
+        self.region_ids = region_ids
         
 
         # ----- Model constants (from specification) -----
